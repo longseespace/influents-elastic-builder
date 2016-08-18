@@ -1,10 +1,15 @@
 <div class="elastic-builder-rule">
-  <select class="form-control" data-ng-model="rule.field" data-ng-options="key as key for (key, value) in elasticFields"></select>
+  <md-input-container>
+    <label>Field</label>
+    <md-select data-ng-model="rule.field" class="form-control">
+      <md-option ng-value="key" ng-repeat="(key, value) in elasticFields">{{key}}</md-option>
+    </md-select>
+  </md-input-container>
 
   <span data-elastic-type="getType()" data-rule="rule" data-guide="elasticFields[rule.field]"></span>
 
-  <a class="btn btn-xs btn-danger remover" data-ng-click="onRemove()">
-    <i class="fa fa-minus"></i>
-  </a>
+  <md-button class="md-icon-button md-accent remover" aria-label="Remove" title="Remove" data-ng-click="onRemove()">
+    <md-icon md-font-icon="icon-minus"></md-icon>
+  </md-button>
 
 </div>

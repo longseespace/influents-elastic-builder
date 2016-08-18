@@ -1,24 +1,33 @@
 <span class="number-rule">
-  <select data-ng-model="rule.subType" class="form-control">
-    <optgroup label="Numeral">
-      <option value="equals">=</option>
-      <option value="gt">&gt;</option>
-      <option value="gte">&ge;</option>
-      <option value="lt">&lt;</option>
-      <option value="lte">&le;</option>
-    </optgroup>
+  <md-input-container>
+    <md-select data-ng-model="rule.subType" class="form-control">
 
-    <optgroup label="Generic">
-      <option value="exists">Exists</option>
-      <option value="notExists">! Exists</option>
-    </optgroup>
-  </select>
+      <!-- Term Options -->
+      <md-optgroup label="Numeral">
+        <md-option value="equals">=</md-option>
+        <md-option value="gt">&gt;</md-option>
+        <md-option value="gte">&ge;</md-option>
+        <md-option value="lt">&lt;</md-option>
+        <md-option value="lte">&le;</md-option>
+      </md-optgroup>
 
-  <!-- Range Fields -->
-  <input data-ng-if="inputNeeded()"
-    class="form-control"
-    data-ng-model="rule.value"
-    type="number"
-    min="{{ guide.minimum }}"
-    max="{{ guide.maximum }}">
+      <!-- Generic Options -->
+      <md-optgroup label="Generic">
+        <md-option value="exists">Exists</md-option>
+        <md-option value="notExists">! Exists</md-option>
+      </md-optgroup>
+
+    </md-select>
+  </md-input-container>
+  <md-input-container>
+    <label>Value</label>
+    <!-- Range Fields -->
+    <input data-ng-if="inputNeeded()"
+      class="form-control"
+      data-ng-model="rule.value"
+      type="number"
+      min="{{ guide.minimum }}"
+      max="{{ guide.maximum }}">
+  </md-input-container>
+
 </span>

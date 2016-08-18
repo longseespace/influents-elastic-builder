@@ -1,8 +1,7 @@
 <span class="multi-rule">
   <span data-ng-repeat="choice in guide.choices">
-    <label class="checkbox">
-      <input type="checkbox" data-ng-model="rule.values[choice]">
+    <md-checkbox data-ng-model="rule.values[choice]" aria-label="{{ choice }}">
       {{ choice }}
-    </label>
+    </md-checkbox>
   </span>
 </span>
