@@ -1,11 +1,11 @@
 {
-  "name": "angular-elastic-builder",
-  "homepage": "https://github.com/dncrews/angular-elastic-builder",
+  "name": "influents-elastic-builder",
+  "homepage": "https://github.com/longseespace/influents-elastic-builder",
   "authors": [
-    "Dan Crews <crewsd@gmail.com>"
+    "Long Nguyen <long@podzim.co>"
   ],
   "description": "Angular Module for building an Elasticsearch Query",
-  "main": "dist/angular-elastic-builder.js",
+  "main": "dist/influents-elastic-builder.js",
   "keywords": [
     "elasticsearch",
     "angular"
