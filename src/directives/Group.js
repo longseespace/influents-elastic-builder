@@ -1,5 +1,5 @@
 /**
- * angular-elastic-builder
+ * influents-elastic-builder
  *
  * /src/directives/Group.js
  */
@@ -7,7 +7,7 @@
 (function(angular) {
   'use strict';
 
-  var app = angular.module('angular-elastic-builder');
+  var app = angular.module('influents-elastic-builder');
 
   app.directive('elasticBuilderGroup', [
     'RecursionHelper',
@@ -22,7 +22,7 @@
           onRemove: '&',
         },
 
-        templateUrl: 'angular-elastic-builder/GroupDirective.html',
+        templateUrl: 'influents-elastic-builder/GroupDirective.html',
 
         compile: function(element) {
           return RH.compile(element, function(scope, el, attrs) {

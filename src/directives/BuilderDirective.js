@@ -1,5 +1,5 @@
 /**
- * angular-elastic-builder
+ * influents-elastic-builder
  *
  * /src/directives/BuilderDirective.js
  *
@@ -9,7 +9,7 @@
  (function(angular) {
    'use strict';
 
-   angular.module('angular-elastic-builder')
+   angular.module('influents-elastic-builder')
     .directive('elasticBuilder', [
       'elasticQueryService',
 
@@ -20,7 +20,7 @@
             data: '=elasticBuilder',
           },
 
-          templateUrl: 'angular-elastic-builder/BuilderDirective.html',
+          templateUrl: 'influents-elastic-builder/BuilderDirective.html',
 
           link: function(scope) {
             var data = scope.data;

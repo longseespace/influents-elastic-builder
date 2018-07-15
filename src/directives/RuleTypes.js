@@ -1,5 +1,5 @@
 /**
- * angular-elastic-builder
+ * influents-elastic-builder
  *
  * /src/directives/RuleTypes.js
  *
@@ -9,7 +9,7 @@
 (function(angular) {
   'use strict';
 
-  var app = angular.module('angular-elastic-builder');
+  var app = angular.module('influents-elastic-builder');
 
   app.directive('elasticType', [
 
@@ -30,7 +30,7 @@
 
             type = type.charAt(0).toUpperCase() + type.slice(1);
 
-            return 'angular-elastic-builder/types/' + type + '.html';
+            return 'influents-elastic-builder/types/' + type + '.html';
           };
 
           // This is a weird hack to make sure these are numbers

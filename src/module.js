@@ -1,5 +1,5 @@
 /**
- * angular-elastic-builder
+ * influents-elastic-builder
  *
  * /src/module.js
  *
@@ -9,7 +9,7 @@
 (function(angular) {
   'use strict';
 
-  angular.module('angular-elastic-builder', [
+  angular.module('influents-elastic-builder', [
     'RecursionHelper',
     'ui.bootstrap',
   ]);

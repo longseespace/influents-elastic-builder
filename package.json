@@ -29,7 +29,8 @@
   "scripts": {
     "example": "node examples",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gulp": "gulp"
+    "build": "gulp",
+    "dev": "gulp watch"
   },
   "dependencies": {}
 }

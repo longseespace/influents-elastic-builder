@@ -1,5 +1,5 @@
 /**
- * angular-elastic-builder
+ * influents-elastic-builder
  *
  * /src/directives/Rule.js
  */
@@ -7,7 +7,7 @@
 (function(angular) {
   'use strict';
 
-  var app = angular.module('angular-elastic-builder');
+  var app = angular.module('influents-elastic-builder');
 
   app.directive('elasticBuilderRule', [
 
@@ -19,7 +19,7 @@
           onRemove: '&',
         },
 
-        templateUrl: 'angular-elastic-builder/RuleDirective.html',
+        templateUrl: 'influents-elastic-builder/RuleDirective.html',
 
         link: function(scope) {
           scope.getType = function() {

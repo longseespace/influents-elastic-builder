@@ -1,5 +1,5 @@
 /**
- * angular-elastic-builder
+ * influents-elastic-builder
  *
  * /src/directives/Chooser.js
  *
@@ -9,7 +9,7 @@
 (function(angular) {
   'use strict';
 
-  var app = angular.module('angular-elastic-builder');
+  var app = angular.module('influents-elastic-builder');
 
   app.directive('elasticBuilderChooser', [
     'RecursionHelper',
@@ -24,7 +24,7 @@
           onRemove: '&',
         },
 
-        templateUrl: 'angular-elastic-builder/ChooserDirective.html',
+        templateUrl: 'influents-elastic-builder/ChooserDirective.html',
 
         compile: function (element) {
           return RH.compile(element, function(scope, el, attrs) {
