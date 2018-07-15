@@ -62,8 +62,8 @@ gulp.task('templatecache', [ 'clean' ], function() {
 
   return gulp.src('src/tmpl/**/*.html')
     .pipe(templateCache({
-      root: 'angular-elastic-builder',
-      module: 'angular-elastic-builder',
+      root: 'influents-elastic-builder',
+      module: 'influents-elastic-builder',
       templateHeader: TEMPLATE_HEADER,
       templateFooter: TEMPLATE_FOOTER,
     }))

@@ -11,7 +11,7 @@ You just give it the fields and can generate a query for it. Its layout is defin
 It's still pretty early on, as it doesn't support a whole lot of use-cases, but we need to make it awesome. Contributions accepted.
 
 ## Try it Out
-[View an example here](http://dncrews.com/angular-elastic-builder/examples/)
+[View an example here](http://dncrews.com/influents-elastic-builder/examples/)
 
 ## Usage
 
@@ -21,17 +21,17 @@ Notice: this plugin requires:
   - the [Angular directives for Bootstrap](https://github.com/angular-ui/bootstrap) module to display the Calendar (ui.bootstrap.datepicker)
 
 ### Installation
-First you'll need to download the [dist](https://github.com/dncrews/angular-elastic-builder/tree/master/dist) files and include this JS file to your app (don't forget to substitute `x.x.x` with the current version number), along with the RecursionHelper, if you're not already using it.
+First you'll need to download the [dist](https://github.com/dncrews/influents-elastic-builder/tree/master/dist) files and include this JS file to your app (don't forget to substitute `x.x.x` with the current version number), along with the RecursionHelper, if you're not already using it.
 ```html
 <script type="text/javascript" src="angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
 <script type="text/javascript" src="angular-recursion/angular-recursion.min.js"></script>
-<script type="text/javascript" src="angular-elastic-builder/angular-elastic-builder.min.js"></script>
+<script type="text/javascript" src="influents-elastic-builder/influents-elastic-builder.min.js"></script>
 ```
 
 Then make sure that it's included in your app's dependencies during module creation.
 
 ```js
-angularmodule('appName', [ 'angular-elastic-builder' ]);
+angularmodule('appName', [ 'influents-elastic-builder' ]);
 ```
 
 Then you can use it in your app
@@ -152,11 +152,11 @@ will overwrite the current state and data with whatever is now defined in your c
 To work on this module locally, you will need to clone it and run `gulp watch`. This will ensure that your changes get compiled properly. You will also need to make sure you run `gulp` to build the "dist" files before commit.
 
 
-[npm-image]: https://img.shields.io/npm/v/angular-elastic-builder.svg
-[npm-url]: https://www.npmjs.org/package/angular-elastic-builder
-[bower-image]: https://img.shields.io/bower/v/angular-elastic-builder.svg
-[downloads-image]: https://img.shields.io/npm/dm/angular-elastic-builder.svg
-[downloads-url]: https://www.npmjs.org/package/angular-elastic-builder
+[npm-image]: https://img.shields.io/npm/v/influents-elastic-builder.svg
+[npm-url]: https://www.npmjs.org/package/influents-elastic-builder
+[bower-image]: https://img.shields.io/bower/v/influents-elastic-builder.svg
+[downloads-image]: https://img.shields.io/npm/dm/influents-elastic-builder.svg
+[downloads-url]: https://www.npmjs.org/package/influents-elastic-builder
 [gratipay-image]: https://img.shields.io/gratipay/dncrews.svg
 [gratipay-url]: https://www.gratipay.com/dncrews/
 [screenshot-image]: ./screenshot.png

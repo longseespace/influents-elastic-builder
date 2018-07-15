@@ -1,7 +1,7 @@
 (function(angular) {
 
   var app = angular.module('exampleApp', [
-    'angular-elastic-builder',
+    'influents-elastic-builder',
   ]);
 
   app.controller('BasicController', function() {
