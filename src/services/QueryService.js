@@ -156,13 +156,19 @@
           case 'equals':
           case 'boolean':
             if (group.value === undefined) return;
-            obj.term = {};
-            obj.term[fieldName] = group.value;
+            obj.query = { match: {} };
+            obj.query.match[fieldName] = {
+              query: group.value,
+              operator: 'and',
+            };
             break;
           case 'notEquals':
             if (group.value === undefined) return;
-            obj.not = { filter: { term: {}}};
-            obj.not.filter.term[fieldName] = group.value;
+            obj.not = { filter: { query: { match: {} }}};
+            obj.not.filter.query.match[fieldName] = {
+              query: group.value,
+              operator: 'and',
+            };
             break;
           case 'exists':
             obj.exists = { field: fieldName };

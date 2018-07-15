@@ -559,13 +559,19 @@
           case 'equals':
           case 'boolean':
             if (group.value === undefined) return;
-            obj.term = {};
-            obj.term[fieldName] = group.value;
+            obj.query = { match: {} };
+            obj.query.match[fieldName] = {
+              query: group.value,
+              operator: 'and',
+            };
             break;
           case 'notEquals':
             if (group.value === undefined) return;
-            obj.not = { filter: { term: {}}};
-            obj.not.filter.term[fieldName] = group.value;
+            obj.not = { filter: { query: { match: {} }}};
+            obj.not.filter.query.match[fieldName] = {
+              query: group.value,
+              operator: 'and',
+            };
             break;
           case 'exists':
             obj.exists = { field: fieldName };
@@ -678,7 +684,7 @@
 
 })(window.angular);
 
-(function(angular) {"use strict"; angular.module("influents-elastic-builder").run(["$templateCache", function($templateCache) {$templateCache.put("influents-elastic-builder/BuilderDirective.html","<div class=\"elastic-builder\">\n  <div class=\"filter-panels\">\n    <div class=\"list-group form-inline\">\n      <div\n        data-ng-repeat=\"filter in filters\"\n        data-elastic-builder-chooser=\"filter\"\n        data-elastic-fields=\"data.fields\"\n        data-on-remove=\"removeChild($index)\"\n        data-depth=\"0\"></div>\n      <div class=\"list-group-item actions\">\n        <md-button class=\"md-icon-button md-accent\" aria-label=\"Add Rule\" title=\"Add Rule\" data-ng-click=\"addRule()\">\n          <md-icon md-font-icon=\"icon-plus\"></md-icon>\n        </md-button>\n        <md-button class=\"md-icon-button md-accent\" aria-label=\"Add Group\" title=\"Add Group\" data-ng-click=\"addGroup()\">\n          <md-icon md-font-icon=\"icon-view-list\"></md-icon>\n        </md-button>\n      </div>\n    </div>\n  </div>\n</div>\n");
+(function(angular) {"use strict"; angular.module("influents-elastic-builder").run(["$templateCache", function($templateCache) {$templateCache.put("influents-elastic-builder/BuilderDirective.html","<div class=\"elastic-builder\">\n  <div class=\"filter-panels\">\n    <div class=\"list-group form-inline\">\n      <div\n        data-ng-repeat=\"filter in filters\"\n        data-elastic-builder-chooser=\"filter\"\n        data-elastic-fields=\"data.fields\"\n        data-on-remove=\"removeChild($index)\"\n        data-depth=\"0\"></div>\n      <div class=\"list-group-item actions\">\n        <md-button class=\"md-icon-button md-accent\" aria-label=\"Add Rule\" title=\"Add Rule\" data-ng-click=\"addRule()\">\n          <md-icon md-font-icon=\"icon-plus\"></md-icon>\n        </md-button>\n        <!-- <md-button class=\"md-icon-button md-accent\" aria-label=\"Add Group\" title=\"Add Group\" data-ng-click=\"addGroup()\">\n          <md-icon md-font-icon=\"icon-view-list\"></md-icon>\n        </md-button> -->\n      </div>\n    </div>\n  </div>\n</div>\n");
 $templateCache.put("influents-elastic-builder/ChooserDirective.html","<div\n  class=\"list-group-item elastic-builder-chooser\"\n  data-ng-class=\"getGroupClassName()\">\n\n  <div data-ng-if=\"item.type === \'group\'\"\n    data-elastic-builder-group=\"item\"\n    data-depth=\"{{ depth }}\"\n    data-elastic-fields=\"elasticFields\"\n    data-on-remove=\"onRemove()\"></div>\n\n  <div data-ng-if=\"item.type !== \'group\'\"\n    data-elastic-builder-rule=\"item\"\n    data-elastic-fields=\"elasticFields\"\n    data-on-remove=\"onRemove()\"></div>\n\n</div>\n");
 $templateCache.put("influents-elastic-builder/GroupDirective.html","<div class=\"elastic-builder-group\">\n  <h5>If\n    <select data-ng-model=\"group.subType\" class=\"form-control\">\n      <option value=\"and\">all</option>\n      <option value=\"or\">any</option>\n    </select>\n    of these conditions are met\n  </h5>\n  <div\n    data-ng-repeat=\"rule in group.rules\"\n    data-elastic-builder-chooser=\"rule\"\n    data-elastic-fields=\"elasticFields\"\n    data-depth=\"{{ +depth + 1 }}\"\n    data-on-remove=\"removeChild($index)\"></div>\n\n  <div class=\"list-group-item actions\" data-ng-class=\"getGroupClassName()\">\n    <a class=\"btn btn-xs btn-primary\" title=\"Add Sub-Rule\" data-ng-click=\"addRule()\">\n      <i class=\"fa fa-plus\"></i>\n    </a>\n    <a class=\"btn btn-xs btn-primary\" title=\"Add Sub-Group\" data-ng-click=\"addGroup()\">\n      <i class=\"fa fa-list\"></i>\n    </a>\n  </div>\n\n  <a class=\"btn btn-xs btn-danger remover\" data-ng-click=\"onRemove()\">\n    <i class=\"fa fa-minus\"></i>\n  </a>\n</div>\n");
 $templateCache.put("influents-elastic-builder/RuleDirective.html","<div class=\"elastic-builder-rule\">\n  <md-input-container>\n    <label>Field</label>\n    <md-select data-ng-model=\"rule.field\" class=\"form-control\">\n      <md-option ng-value=\"key\" ng-repeat=\"(key, value) in elasticFields\">{{key}}</md-option>\n    </md-select>\n  </md-input-container>\n\n  <span data-elastic-type=\"getType()\" data-rule=\"rule\" data-guide=\"elasticFields[rule.field]\"></span>\n\n  <md-button class=\"md-icon-button md-accent remover\" aria-label=\"Remove\" title=\"Remove\" data-ng-click=\"onRemove()\">\n    <md-icon md-font-icon=\"icon-minus\"></md-icon>\n  </md-button>\n\n</div>\n");

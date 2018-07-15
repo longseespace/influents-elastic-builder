@@ -1,6 +1,6 @@
 {
   "name": "influents-elastic-builder",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "Angular Module for building an Elasticsearch Query",
   "author": "Long Nguyen <long@podzim.co>",
   "license": "MIT",
