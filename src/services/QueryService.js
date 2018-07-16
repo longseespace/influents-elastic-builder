@@ -84,6 +84,26 @@
           }
         }
         break;
+      case 'query':
+        obj.field = Object.keys(group.query.match)[0];
+        var fieldData = fieldMap[Object.keys(group.query.match)[0]];
+
+        if (fieldData.type === 'multi') {
+          var vals = group.query.match[obj.field];
+          if (typeof vals === 'string') vals = [ vals ];
+          obj.values = fieldData.choices.reduce(function(prev, choice) {
+            prev[choice] = group[key][obj.field].indexOf(choice) !== -1;
+            return prev;
+          }, {});
+        } else {
+          obj.subType = truthy ? 'equals' : 'notEquals';
+          obj.value = group.query.match[obj.field].query;
+
+          if (typeof obj.value === 'number') {
+            obj.subType = 'boolean';
+          }
+        }
+        break;
       case 'range':
         var date, parts;
         obj.field = Object.keys(group[key])[0];

@@ -2,7 +2,7 @@
  * # influents-elastic-builder
  * ## Angular Module for building an Elasticsearch Query
  *
- * @version v1.5.2
+ * @version v1.6.0
  * @link https://github.com/longseespace/influents-elastic-builder.git
  * @license MIT
  * @author Long Nguyen <long@podzim.co>
@@ -481,6 +481,26 @@
         } else {
           obj.subType = truthy ? 'equals' : 'notEquals';
           obj.value = group[key][obj.field];
+
+          if (typeof obj.value === 'number') {
+            obj.subType = 'boolean';
+          }
+        }
+        break;
+      case 'query':
+        obj.field = Object.keys(group.query.match)[0];
+        var fieldData = fieldMap[Object.keys(group.query.match)[0]];
+
+        if (fieldData.type === 'multi') {
+          var vals = group.query.match[obj.field];
+          if (typeof vals === 'string') vals = [ vals ];
+          obj.values = fieldData.choices.reduce(function(prev, choice) {
+            prev[choice] = group[key][obj.field].indexOf(choice) !== -1;
+            return prev;
+          }, {});
+        } else {
+          obj.subType = truthy ? 'equals' : 'notEquals';
+          obj.value = group.query.match[obj.field].query;
 
           if (typeof obj.value === 'number') {
             obj.subType = 'boolean';
